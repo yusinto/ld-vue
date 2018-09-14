@@ -1,0 +1,35 @@
+{
+  "name": "ld-vue",
+  "version": "0.0.2",
+  "description": "A library to integrate Launch Darkly with Vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "rimraf lib/* && babel src -d lib --ignore *.test.js",
+    "lint": "eslint --cache --format 'node_modules/eslint-friendly-formatter' ./src",
+    "build-publish": "npm version patch -m 'Upgrade to %s' && npm publish && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusinto/ld-vue.git"
+  },
+  "keywords": [
+    "launch",
+    "darkly",
+    "vue",
+    "feature",
+    "flags",
+    "toggle",
+    "toggling",
+    "a/b",
+    "testing",
+    "js",
+    "javascript"
+  ],
+  "author": "Yusinto Ngadiman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yusinto/ld-vue/issues"
+  },
+  "homepage": "https://github.com/yusinto/ld-vue#readme"
+}
