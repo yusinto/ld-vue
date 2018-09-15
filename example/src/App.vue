@@ -7,8 +7,29 @@
     <router-view/>
   </div>
 </template>
+<script>
+  import {Component, Prop, Vue} from 'vue-property-decorator';
+  import camelCase from 'lodash.camelcase';
+  import {initLDClient, ldClient} from './initLDClient';
 
-<style lang="scss">
+  @Component
+  export default class App extends Vue {
+    mounted() {
+      this.$nextTick(async () => {
+        this.$root.$data.flags= await initLDClient('client-side-id', {key: 'yus'});
+
+        ldClient.on('change', changes => {
+          const flattened = {};
+          for (const key in changes) {
+            flattened[camelCase(key)] = changes[key].current;
+          }
+          this.$root.$data.flags = {...this.$root.$data.flags, ...flattened};
+        });
+      })
+    }
+  }
+</script>
+<style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,12 +39,14 @@
 }
 #nav {
   padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

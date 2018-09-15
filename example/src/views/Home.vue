@@ -1,18 +1,23 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+    <div class="home">
+        <img alt="Vue logo" src="../assets/logo.png">
+        <p>
+            {{this.$root.$data.flags.devTestFlag ? 'Flag on' : 'Flag off'}}
+        </p>
+    </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script>
+  import {Component, Vue} from 'vue-property-decorator';
 
-@Component({
-  components: {
-    HelloWorld
+  @Component
+  export default class Home extends Vue {
+    updated() {
+      console.log(`Home.updated.devTestFlag: ${this.$root.$data.flags.devTestFlag}`);
+    }
+
+//    mounted() {
+//      console.log(`Home.mounted.devTestFlag: ${this.$root.$data.flags.devTestFlag}`);
+//    }
   }
-})
-export default class Home extends Vue {}
 </script>
