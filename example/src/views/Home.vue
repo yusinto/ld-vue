@@ -9,10 +9,10 @@
 
 <script>
   import Component, {mixins as Mixin} from 'vue-class-component';
-  import WithFlags from '../ld-vue/withFlags';
+  import {withFlags} from '../../../lib';
 
   @Component
-  export default class Home extends Mixin(WithFlags) {
+  export default class Home extends Mixin(withFlags) {
     updated() {
       console.log(`Home.updated.devTestFlag: ${this.flags.devTestFlag}`);
     }

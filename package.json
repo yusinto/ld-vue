@@ -2,12 +2,12 @@
   "name": "ld-vue",
   "version": "0.0.2",
   "description": "A library to integrate Launch Darkly with Vue",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
     "build": "rimraf lib/* && babel src -d lib --ignore *.test.js",
     "lint": "eslint --cache --format 'node_modules/eslint-friendly-formatter' ./src",
-    "build-publish": "npm version patch -m 'Upgrade to %s' && npm publish && git push"
+    "build-publish": "npm run build && npm version patch -m 'Upgrade to %s' && npm publish && git push"
   },
   "repository": {
     "type": "git",
@@ -31,5 +31,18 @@
   "bugs": {
     "url": "https://github.com/yusinto/ld-vue/issues"
   },
-  "homepage": "https://github.com/yusinto/ld-vue#readme"
+  "homepage": "https://github.com/yusinto/ld-vue#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "ip": "^1.1.5",
+    "ldclient-js": "^2.6.0",
+    "lodash.camelcase": "^4.3.0",
+    "ua-parser-js": "^0.7.18",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0"
+  }
 }

@@ -11,10 +11,10 @@
 <script>
   import Vue from 'vue';
   import Component, {mixins as Mixin} from 'vue-class-component';
-  import WithFlagProvider from './ld-vue/withFlagProvider';
+  import {withFlagProvider} from '../../lib';
 
   @Component
-  export default class App extends Mixin(WithFlagProvider) {
+  export default class App extends Mixin(withFlagProvider) {
     mounted() {
       this.initLD('57df4354dd79c70721bcb507');
     }
