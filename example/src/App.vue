@@ -9,24 +9,16 @@
     </div>
 </template>
 <script>
-//  import WithFlagProvider from './ld-vue/withFlagProvider';
-//
-//  export default {
-//    mixins: [WithFlagProvider],
-//    mounted: function () {
-//      this.initLD('57df4354dd79c70721bcb507');
-//    }
-//  }
-    import Vue from 'vue';
-    import Component, {mixins as Mixin} from 'vue-class-component';
-    import WithFlagProvider from './ld-vue/withFlagProvider';
+  import Vue from 'vue';
+  import Component, {mixins as Mixin} from 'vue-class-component';
+  import WithFlagProvider from './ld-vue/withFlagProvider';
 
-    @Component
-    export default class App extends Mixin(WithFlagProvider) {
-      mounted() {
-        this.initLD('57df4354dd79c70721bcb507');
-      }
+  @Component
+  export default class App extends Mixin(WithFlagProvider) {
+    mounted() {
+      this.initLD('57df4354dd79c70721bcb507');
     }
+  }
 </script>
 <style>
     #app {
