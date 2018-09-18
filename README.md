@@ -5,7 +5,7 @@
 > **Integrate Launch darkly with Vue in seconds** :tada:
 
 Why this package?
-* Easy and fast to use. Two steps to get feature flags into your Vue app.
+* Easy and fast to use. Two steps to get Launch Darkly feature flags into your Vue app.
 * Supports subscription out of the box. You get live changes on the client as you toggle features.
 * You automatically get camelCased keys as opposed to the default kebab-cased.
 
@@ -56,6 +56,7 @@ root App.vue instance to initialise ld-vue.
 
 Example usage with class components:
 
+##### App.vue
 ```js
 <script>
 import Component, { mixins } from 'vue-class-component'
