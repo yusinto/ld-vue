@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/ld-vue.svg?style=flat-square)](https://www.npmjs.com/package/ld-vue) [![npm downloads](https://img.shields.io/npm/dm/ld-vue.svg?style=flat-square)](https://www.npmjs.com/package/ld-vue) [![npm](https://img.shields.io/npm/dt/ld-vue.svg?style=flat-square)](https://www.npmjs.com/package/ld-vue) [![npm](https://img.shields.io/npm/l/ld-vue.svg?style=flat-square)](https://www.npmjs.com/package/ld-vue)
 
-> **The quickest and easiest way to integrate launch darkly with Vue** :tada:
+> **Integrate Launch darkly with Vue in seconds** :tada:
 
 Why this package?
 * Easy and fast to use. Two steps to get feature flags into your Vue app.
@@ -15,34 +15,34 @@ yarn add ld-vue
 
 ## Quickstart
 
-1. Use the `withFlagProvider` mixin on your root App:
+1. Use the `withFlagProvider` mixin in your root App:
 
+    ##### App.vue
     ```js
     <script>
-    import Component, { mixins } from 'vue-class-component'
     import { withFlagProvider } from 'ld-vue'
-
-    // set your client side id here
-    @Component
-    export default class App extends mixins(withFlagProvider({clientSideId: 'client-side-id'})) {}
+    
+    export default {
+      mixins: [withFlagProvider({ clientSideId: 'your-client-side-id' })],
+    }
     </script>
     ```
 
-2. Use the `withFlags` mixin on any components needing flags:
+2. Use the `withFlags` mixin in your Vue component to get them via props:
 
     ```js
     <template>
       <div>
-        <!-- Look ma feature flags! -->
+        <!-- this.flags is injected by withFlags -->
         {{this.flags.devTestFlag ? 'Flag on' : 'Flag off'}}
       </div>
     </template>
     <script>
-    import Component, { mixins } from 'vue-class-component'
     import { withFlags } from 'ld-vue'
-
-    @Component
-    export default class Home extends mixins(withFlags) {}
+    
+    export default {
+      mixins: [withFlags],
+    }
     </script>
     ```
 
@@ -50,10 +50,11 @@ That's it!
 
 ## API
 ### withFlagProvider({clientSideId, user, options})
-This is a mixin which accepts a config object with the above properties. `clientSideId` is
-mandatory.
+This is a function which accepts a config object with the above properties. Only `clientSideId` is
+mandatory. Returns a mixin which a Vue instance can use like a normal mixin. Use this mixin in your
+root App.vue instance to initialise ld-vue. 
 
-For example:
+Example usage with class components:
 
 ```js
 <script>
@@ -61,12 +62,13 @@ import Component, { mixins } from 'vue-class-component'
 import { withFlagProvider } from 'ld-vue'
 
 @Component
-export default class App extends mixins(withFlagProvider({clientSideId: 'client-side-id'})) {}
+export default class App extends mixins(withFlagProvider({clientSideId: 'your-client-side-id'})) {}
 </script>
 ```
 
-The `user` property is optional. You can initialise the sdk with a custom user by specifying one. This must be an object containing
-at least a "key" property. If you don't specify a user object, ld-vue will create a default one that looks like this:
+The `user` property is optional. You can initialise the sdk with a custom user by specifying one. 
+This must be an object containing at least a "key" property. If you don't specify a user object, 
+ld-vue will create a default one that looks like this:
 
 ```js
 const defaultUser = {
@@ -81,7 +83,9 @@ const defaultUser = {
 
 For more info on the user object, see [here](http://docs.launchdarkly.com/docs/js-sdk-reference#section-users).
 
-The `options` property is optional. It can be used to pass in extra options such as [Bootstrapping](https://github.com/launchdarkly/js-client#bootstrapping).
+The `options` property is optional. It can be used to pass in extra options such as 
+[Bootstrapping](https://github.com/launchdarkly/js-client#bootstrapping).
+
 For example:
 
 ```javascript
@@ -95,11 +99,12 @@ withFlagProvider({
 
 ### withFlags
 This is a mixin which injects all your flags to the specified component via props. Your flags will be available
-as camelCased properties under `this.props.flags`. For example:
+as camelCased properties under `this.flags`. For example with class components:
 
 ```js
 <template>
   <div>
+    <!-- Look ma feature flags! -->
     {{this.flags.devTestFlag ? 'Flag on' : 'Flag off'}}
   </div>
 </template>
@@ -131,8 +136,6 @@ export default class Home extends Vue {
 }
 </script>
 ```
-
-For more info on changing user context, see the [official documentation](http://docs.launchdarkly.com/docs/js-sdk-reference#section-changing-the-user-context).
 
 ## Example
 Check the [example](https://github.com/yusinto/ld-vue/tree/master/example) for a standard vue cli app with feature flags.
