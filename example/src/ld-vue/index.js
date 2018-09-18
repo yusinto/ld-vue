@@ -1,9 +1,5 @@
-import withFlagProvider from './withFlagProvider';
-import withFlags from './withFlags';
-import {ldClient} from './initLDClient';
+import withFlagProvider from './withFlagProvider'
+import withFlags from './withFlags'
+import { ldClient } from './initLDClient'
 
-export {
-  ldClient,
-  withFlagProvider,
-  withFlags,
-};
+export { ldClient, withFlagProvider, withFlags }
