@@ -22,6 +22,7 @@ yarn add ld-vue
     import Component, { mixins } from 'vue-class-component'
     import { withFlagProvider } from 'ld-vue'
 
+    // set your client side id here
     @Component
     export default class App extends mixins(withFlagProvider({clientSideId: 'client-side-id'})) {}
     </script>
@@ -32,6 +33,7 @@ yarn add ld-vue
     ```js
     <template>
       <div>
+        <!-- Look ma feature flags! -->
         {{this.flags.devTestFlag ? 'Flag on' : 'Flag off'}}
       </div>
     </template>
