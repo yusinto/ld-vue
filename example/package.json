@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "ld-vue": "^0.0.6",
-    "ldclient-js": "^2.6.0",
-    "lodash.camelcase": "^4.3.0",
     "vue": "^2.5.17",
     "vue-class-component": "^6.2.0",
     "vue-router": "^3.0.1"
