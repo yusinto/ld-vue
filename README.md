@@ -23,7 +23,7 @@ yarn add ld-vue
     import { withFlagProvider } from 'ld-vue'
 
     @Component
-    export default class App extends mixins(withFlagProvider('client-side-id'),) {}
+    export default class App extends mixins(withFlagProvider({clientSideId: 'client-side-id'})) {}
     </script>
     ```
 
@@ -59,7 +59,7 @@ import Component, { mixins } from 'vue-class-component'
 import { withFlagProvider } from 'ld-vue'
 
 @Component
-export default class App extends mixins(withFlagProvider('client-side-id'),) {}
+export default class App extends mixins(withFlagProvider({clientSideId: 'client-side-id'})) {}
 </script>
 ```
 
