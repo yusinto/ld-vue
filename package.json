@@ -1,6 +1,6 @@
 {
   "name": "ld-vue",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A library to integrate Launch Darkly with Vue",
   "main": "lib/index.js",
   "scripts": {
