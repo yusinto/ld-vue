@@ -13,11 +13,9 @@ import Component, { mixins as Mixin } from 'vue-class-component'
 import { withFlagProvider } from 'ld-vue'
 
 @Component
-export default class App extends Mixin(withFlagProvider) {
-  mounted() {
-    this.initLD('57df4354dd79c70721bcb507')
-  }
-}
+export default class App extends Mixin(
+  withFlagProvider({clientSideId: '57df4354dd79c70721bcb507'}),
+) {}
 </script>
 <style>
 #app {
