@@ -9,7 +9,7 @@
 
 <script>
   import Component, {mixins as Mixin} from 'vue-class-component';
-  import {withFlags} from '../../../lib';
+  import {withFlags} from '../ld-vue';
 
   @Component
   export default class Home extends Mixin(withFlags) {

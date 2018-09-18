@@ -11,7 +11,7 @@
 <script>
   import Vue from 'vue';
   import Component, {mixins as Mixin} from 'vue-class-component';
-  import {withFlagProvider} from '../../lib';
+  import {withFlagProvider} from './ld-vue';
 
   @Component
   export default class App extends Mixin(withFlagProvider) {
