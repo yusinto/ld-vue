@@ -4082,9 +4082,9 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
-ld-vue@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/ld-vue/-/ld-vue-0.0.6.tgz#c9b86e932a4783198e70c6f9e07bddf5818563dd"
+ld-vue@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/ld-vue/-/ld-vue-0.0.7.tgz#4f9be189b33e7821e6dd00446be3892d98f039db"
   dependencies:
     "@babel/polyfill" "^7.0.0"
     ip "^1.1.5"

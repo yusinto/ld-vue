@@ -14,7 +14,7 @@ import { withFlagProvider } from 'ld-vue'
 
 @Component
 export default class App extends Mixin(
-  withFlagProvider({clientSideId: '57df4354dd79c70721bcb507'}),
+  withFlagProvider({ clientSideId: '57df4354dd79c70721bcb507' }),
 ) {}
 </script>
 <style>
